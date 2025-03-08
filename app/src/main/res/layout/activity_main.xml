@@ -98,5 +98,11 @@
             android:layout_height="wrap_content"
             android:onClick="editarProductos"
             android:text="editar producto" />
+
+        <Button
+            android:id="@+id/btnServicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Servicios" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
