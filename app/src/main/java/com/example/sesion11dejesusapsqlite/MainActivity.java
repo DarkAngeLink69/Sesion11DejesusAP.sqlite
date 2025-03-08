@@ -1,10 +1,13 @@
 package com.example.sesion11dejesusapsqlite;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -13,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private EditText codigo, descripccion, ubicacion, existencias;
-
+    private Button btnServicios;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +26,14 @@ public class MainActivity extends AppCompatActivity {
         descripccion =findViewById(R.id.etDescripccion);
         ubicacion =findViewById(R.id.etUbicacion);
         existencias =findViewById(R.id.etExistencias);
-
+        btnServicios =findViewById(R.id.btnServicios);
+        btnServicios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirSer = new Intent(getApplicationContext(), Servicios.class);
+                startActivity(abrirSer);
+            }
+        });
     }
     public void altaProductos(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
